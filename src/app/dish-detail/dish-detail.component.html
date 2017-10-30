@@ -1,20 +1,14 @@
-<div class="container"
-fxLayout="row"
-fxLayout.sm="column"
-fxLayout.xs="column"
-fxLayoutAlign.gt-md="space-around center"
-fxLayoutGap="10px" 
-fxLayoutGap.xs="0">
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-      <md-card>
+      <md-card *ngIf="dish">
           <md-card-header>
             <md-card-title>
               <h3>{{dish.name | uppercase}}</h3>
             </md-card-title>
           </md-card-header>
           <img md-card-image src={{dish.image}} alt={{dish.name}}>
-          <md-card-content>
+          <md-card-content *ngIf = "dish">
             <p>{{dish.description}}
             </p>
           </md-card-content>
@@ -26,14 +20,15 @@ fxLayoutGap.xs="0">
   </div>
 
   <div fxFlex="40">
-    <md-list>
+    <md-list *ngIf="dish">
       <h3>Comments</h3>
-      <!--<p>{{fcomment[0].comment}}</p>-->
-      <md-tile *ngFor="let fullcomment of fcomment">
-        <p>{{fullcomment.comment}}</p>
-      </md-tile>
-
-    
+      <md-list-item *ngFor="let comment of dish.comments">
+        <h4 md-line>{{comment.comment}}</h4>
+        <p md-line>{{comment.rating}} Stars</p>
+        <p md-line>
+          <span>-- {{comment.author}}, {{comment.date | date}}</span>
+        </p>
+      </md-list-item>
     </md-list>
   </div>
 
