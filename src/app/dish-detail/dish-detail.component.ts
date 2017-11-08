@@ -103,6 +103,4 @@ export class DishDetailComponent implements OnInit {
       });
       //make form pristine if possible
     }
-
-    
 }
