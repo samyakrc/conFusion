@@ -36,9 +36,16 @@
           <span>-- {{comment.author}}, {{comment.date | date}}</span>
         </p>
       </md-list-item>
+      <md-list-item *ngIf="feedbackForm.valid">
+          <h4 md-line>{{feedbackForm.value.comment}}</h4>
+          <p md-line>{{feedbackForm.value.rating}} Stars</p>
+          <p md-line>
+            <span>-- {{feedbackForm.value.author}}, {{feedbackForm.value.date | date}}</span>
+          </p>
+      </md-list-item>
     </md-list>
 
-    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+    <!--<p>{{ feedbackForm.value | json }}, {{ feedbackForm.status | json }}</p>-->
 
     <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
         <p>
