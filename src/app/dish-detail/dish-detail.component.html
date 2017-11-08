@@ -37,9 +37,36 @@
         </p>
       </md-list-item>
     </md-list>
+
+    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+        <p>
+          <md-input-container class="half-width"
+           dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+            <input mdInput formControlName="author" placeholder="Name" type="text" required>
+            <md-hint>
+              <span [hidden]="!(formErrors.author)">
+                {{formErrors.author}}</span>
+            </md-hint>
+          </md-input-container>
+        </p>
+           <md-slider formControlName="rating" min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"></md-slider>
+        <p>
+          <md-input-container class="half-width"
+           dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+            <textarea mdInput formControlName="comment" placeholder="Your Comment" required></textarea>
+            <md-hint>
+              <span [hidden]="!(formErrors.comment)">
+                {{formErrors.comment}}</span>
+            </md-hint>
+          </md-input-container>
+        </p>
+        <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+      </form>
   </div>
   <div [hidden]="dish" fxFlex>
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
-</div>
+  </div>
 
 </div>
