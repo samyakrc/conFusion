@@ -72,7 +72,7 @@
         <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
       </form>
   </div>
-  <div [hidden]="dish || dishErrMess" fxFlex>
+  <div [hidden]="dish || dishErrMess" fxFlex = 20>
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
   <div *ngIf="dishErrMess">
