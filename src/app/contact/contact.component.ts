@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
 
@@ -41,7 +41,7 @@ export class ContactComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, @Inject('BaseURL') private BaseURL) {
     this.createForm();
   }
 

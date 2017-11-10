@@ -59,7 +59,7 @@ fxLayoutGap="10px">
      <md-list *ngIf="leaders">
       <h2>Corporate Leadership</h2>
       <md-list-item *ngFor="let ce of leaders">
-        <img md-list-avatar src={{ce.image}} alt={{ce.name}}>
+        <img md-list-avatar src="{{BaseURL + ce.image}}" alt={{ce.name}}>
         <h4 md-line>{{ce.name}}, {{ce.abbr}}</h4>
         <p md-line>{{ce.designation}}</p>
         <p md-line>{{ce.description}}</p>
